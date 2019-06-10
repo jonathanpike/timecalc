@@ -28,9 +28,14 @@ private
     if total > 60
       hours = total / 60
       minutes = total - (hours * 60)
-      "#{hours}:#{minutes}"
+      "#{hours}:#{add_leading_zero(minutes)}"
     else
-      "0:#{total}"
+      "0:#{add_leading_zero(total)}"
     end
+  end
+
+  def add_leading_zero(time)
+    return time unless time < 10
+    "0#{time}"
   end
 end
